@@ -1,0 +1,71 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\User\\Documents\\KarpovProject\\pollygonUnity\\ContainerLifting\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{F61A6211-2399-F708-4104-D3D6337B36A6}|Assembly-CSharp.csproj|c:\\users\\user\\documents\\karpovproject\\pollygonunity\\containerlifting\\assets\\scripts\\movecatch.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F61A6211-2399-F708-4104-D3D6337B36A6}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\movecatch.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F61A6211-2399-F708-4104-D3D6337B36A6}|Assembly-CSharp.csproj|c:\\users\\user\\documents\\karpovproject\\pollygonunity\\containerlifting\\assets\\scripts\\movingx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F61A6211-2399-F708-4104-D3D6337B36A6}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\movingx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F61A6211-2399-F708-4104-D3D6337B36A6}|Assembly-CSharp.csproj|c:\\users\\user\\documents\\karpovproject\\pollygonunity\\containerlifting\\assets\\scripts\\changecamera.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F61A6211-2399-F708-4104-D3D6337B36A6}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\changecamera.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ChangeCamera.cs",
+              "DocumentMoniker": "C:\\Users\\User\\Documents\\KarpovProject\\pollygonUnity\\ContainerLifting\\Assets\\Scripts\\ChangeCamera.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\ChangeCamera.cs",
+              "ToolTip": "C:\\Users\\User\\Documents\\KarpovProject\\pollygonUnity\\ContainerLifting\\Assets\\Scripts\\ChangeCamera.cs",
+              "RelativeToolTip": "Assets\\Scripts\\ChangeCamera.cs",
+              "ViewState": "AQIAAA0AAAAAAAAAAAAQwAcAAAAtAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-15T15:17:34.618Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "MovingX.cs",
+              "DocumentMoniker": "C:\\Users\\User\\Documents\\KarpovProject\\pollygonUnity\\ContainerLifting\\Assets\\Scripts\\MovingX.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\MovingX.cs",
+              "ToolTip": "C:\\Users\\User\\Documents\\KarpovProject\\pollygonUnity\\ContainerLifting\\Assets\\Scripts\\MovingX.cs",
+              "RelativeToolTip": "Assets\\Scripts\\MovingX.cs",
+              "ViewState": "AQIAAAsAAAAAAAAAAAAAwD4AAABEAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-15T14:25:39.013Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "MoveCatch.cs",
+              "DocumentMoniker": "C:\\Users\\User\\Documents\\KarpovProject\\pollygonUnity\\ContainerLifting\\Assets\\Scripts\\MoveCatch.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\MoveCatch.cs",
+              "ToolTip": "C:\\Users\\User\\Documents\\KarpovProject\\pollygonUnity\\ContainerLifting\\Assets\\Scripts\\MoveCatch.cs",
+              "RelativeToolTip": "Assets\\Scripts\\MoveCatch.cs",
+              "ViewState": "AQIAABkAAAAAAAAAAAAQwEAAAAAVAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-15T13:21:01.977Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
