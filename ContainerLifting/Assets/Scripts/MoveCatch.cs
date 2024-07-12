@@ -1,6 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Numerics;
+using Unity.VisualScripting;
+using UnityEditor.Search;
 using UnityEngine;
 using UnityEngine.UIElements;
 using static Cinemachine.AxisState;
@@ -11,89 +14,84 @@ public class MoveCatch : MonoBehaviour
     public float speed = 5.00f;
 
     public bool state = false;
-    private float possition;
-    public bool permisMin = true;
-    public bool permisMax = true;
-    public GameObject Obj;
-    public Vector3 vector3;
 
-    public float posMin;
-    public float posMax;
+    public GameObject Obj;
+
+    private Vector3 vector3;
+    private bool stopMove=false;
+
+    public int vector1,vector2;
+
+    public int m_threshold = 1;
+
+    public GameObject m_target;
+    public GameObject base_target;
+
+    private GameObject m_zahvacheniyObgect;
+
 
     public BtnCatch BtnCatch;
+
+    public string Tag = "Items";
+
     void Update()
     {
-        //CheckPos(posMin, posMax, possition);  // проверка позиции
-        //possition = Obj.transform.position.x;  // получаем позицию
 
     }
+
     public void Move()
     {
-        state = !state;
+        //state = !state;
         StartCoroutine(Corutin());
     }
     IEnumerator Corutin()// корутина крутим  и меняем позицию 
     {
-        Debug.Log("Нажта");
-        {
+        print("Нажта");
 
-           if (!state) 
+        if (!state)
+        {
+            while (!state)
             {
-                while (!state)
+                Obj.transform.Translate(new Vector3(vector1, 0) * speed * Time.deltaTime);
+
+                //float distance1=GetDistance(Obj.transform.position,m_target.transform.position);
+
+                //Obj.transform.Translate(new Vector3(k,0) * speed * Time.deltaTime);
+
+                print("позиция  вправо = " + Obj.name + " " + Obj.transform.position.x);
+                if ((GetDistance(Obj.transform.position, m_target.transform.position) < m_threshold)|| stopMove)
                 {
-                    Obj.transform.Translate(Vector3.right * speed * Time.deltaTime);
-                    Debug.Log("позиция  в право = " + Obj.name + " " + Obj.transform.position.x);
-                    if (Obj.transform.position.x >= posMax)
-                    {
-                        state = false;
-                        break;
-                    }
-                    yield return null;
+                    print("зажалось");
+                    state = true;
+                    stopMove = false;
+                    break;
                 }
-            }
                 
-            if (state)
+                yield return null;
+            }
+        } else
+        {
+            while (state)
             {
-                while (state)
+                Obj.transform.Translate(new Vector3(vector2, 0) * speed * Time.deltaTime);
+                gameObject.transform.DetachChildren();
+                //float distance1=GetDistance(Obj.transform.position,m_target.transform.position);
+
+                //Obj.transform.Translate(new Vector3(k,0) * speed * Time.deltaTime);
+
+                //Debug.Log("позиция  влево = " + Obj.name + " " + Obj.transform.position.x);
+                
+                if (GetDistance(Obj.transform.position, base_target.transform.position) < m_threshold)
                 {
-                    Obj.transform.Translate(Vector3.left * speed * Time.deltaTime);
-                    Debug.Log("позиция в лево = " + Obj.name + " " + Obj.transform.position.x);
-                    if (Obj.transform.position.x <= posMin)
-                    {
-                        state = true;
-                        break;
-                    }
-                    yield return null;
+                   // Debug.Log("разжалось");
+                    //Debug.Log(GetDistance(Obj.transform.position, base_target.transform.position));
+                    state = false;
+                    break;
                 }
+                yield return null;
             }
         }
     }
-
-
-    private void CheckPos(float min, float max, float poss)
-    {
-        // проверка Максимума
-        if (poss >= max)
-        {
-            //Debug.Log("Достигнута максимальная позиция"+poss+"  "+max);
-            permisMax = false;
-        }
-        else
-        {
-            permisMax = true;
-        }
-        //проверка Минимума   
-        if (poss <= min)
-        {
-            //Debug.Log("Достигнута минимальная позиция");
-            permisMin = false;
-        }
-        else
-        {
-            permisMin = true;
-        }
-    }
-
 
     private void OnEnable()// подписка на нажатие кнопки
     {
@@ -103,7 +101,7 @@ public class MoveCatch : MonoBehaviour
         }
         else
         {
-            Debug.Log("Opps,no attach", this);
+            //("Opps,no attach", this);
         }
     }
     private void OnDisable()
@@ -114,7 +112,38 @@ public class MoveCatch : MonoBehaviour
         }
         else
         {
-            Debug.Log("Opps,no attach", this);
+            //Debug.Log("Opps,no attach", this);
         }
+    }
+    
+    //метод нахождения растояния между двумя точками
+    float GetDistance(Vector3 _point1, Vector3 _poin2)
+    {
+
+        return Vector3.Distance(_point1, _poin2);
+    }
+    private void OnCollisionEnter(Collision collision) // метод пересечения обьектов
+    {
+        print(collision.gameObject.name);
+        if (collision.gameObject.CompareTag(Tag))
+        {
+            stopMove = true; // если столкнулось с обьектом тега Items то останавливаем клешню в корутине
+            collision.transform.SetParent(gameObject.transform);
+            collision.rigidbody.useGravity = false;
+            m_zahvacheniyObgect = collision.gameObject;
+        }
+    }
+    private void OnCollisionExit(Collision collision)
+    {
+        print(collision.gameObject.name);
+        if (collision.gameObject.CompareTag(Tag))
+        {
+            collision.rigidbody.useGravity = true;
+            collision.transform.DetachChildren();
+        }
+    }
+    private void OnCollisionStay(Collision collision)
+    {
+        
     }
 }
